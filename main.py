@@ -1,4 +1,7 @@
+import json
 import os
+FILE_PATH = os.path.join(os.path.dirname(__file__), "expenses.json")
+
 
 def clear_screen():
     os.system("cls")
@@ -7,7 +10,16 @@ def pause():
     input('\nPress Enter to continue....')
     clear_screen() 
 
-expenses = []
+def save_expenses():
+    with open(FILE_PATH, "w") as file:
+        json.dump(expenses,file)
+
+def load_expenses():
+    with open(FILE_PATH, "r") as file:
+        return json.load(file)
+        
+
+expenses = load_expenses()
 
 
 while True:
@@ -36,6 +48,7 @@ while True:
             }
 
             expenses.append(expense)
+            save_expenses()
 
             print("Expense added successfully")
             pause()
