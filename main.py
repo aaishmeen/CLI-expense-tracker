@@ -108,6 +108,42 @@ def delete_expense():
             print("Invalid expense number")
             pause()
 
+def search_expenses():
+
+    if not expenses:
+        print("No Expenses found")
+        pause()
+        return
+    
+    search= input("Enter category to search: ")
+
+    matched_expenses = []
+    
+    for expense in expenses:
+        if search.lower() in expense["category"].lower():
+           matched_expenses.append(expense)
+
+    if not matched_expenses:
+        print("No matching expenses found.")
+        pause()
+
+    else :
+        print("-" * 50)
+        print(f"{'Category':<15} {'Item':<20} {'Price':<10}")
+        print("-" * 50)
+
+        for expense in matched_expenses:
+            print(
+                f"{expense['category']:<15} "
+                f"{expense['item_name']:<20} "
+                f"₹{expense['price']:<10}"
+            )
+
+        print("-" * 50)
+
+        pause()
+
+
 
 expenses = load_expenses()
 
@@ -121,9 +157,10 @@ while True:
     print("2. View Expense")
     print("3. Show Total Spending")
     print("4. Delete Expense")
-    print("5. EXIT")
+    print("5. Search Expenses")
+    print("6. EXIT")
 
-    choice = input("Enter your choice (1-5): ")
+    choice = input("Enter your choice (1-6): ")
 
     match choice:
         case "1":
@@ -137,8 +174,11 @@ while True:
                
         case "4":
             delete_expense()
-           
+
         case "5":
+            search_expenses()    
+           
+        case "6":
             print("EXITING NOW !")
             break      
         
