@@ -4,7 +4,11 @@ A command-line expense management application built using Python. This project e
 
 ## Project Overview
 
- The project focuses on data management, user interaction, file handling, and code organization while following industry-standard Git and GitHub workflows.
+CLI Expense Tracker is a beginner-friendly software project designed to apply core computer science concepts in a practical environment. The application allows users to manage expenses efficiently while demonstrating concepts such as data structures, file handling, JSON persistence, input validation, and software modularization.
+
+This project was developed incrementally using Git and GitHub, following feature-based commits and continuous refactoring to improve code quality and maintainability.
+
+
 
 ## Features
 
@@ -18,11 +22,13 @@ A command-line expense management application built using Python. This project e
 ### Expense Analysis
 
 * Calculate total spending
+* Display total number of recorded expenses
 
 ### Data Persistence
 
 * Save expenses to a JSON file
 * Automatically load saved expenses when the application starts
+* Maintain expense records across multiple executions
 
 ### User Experience
 
@@ -30,7 +36,10 @@ A command-line expense management application built using Python. This project e
 * Formatted tabular display
 * Screen clearing for improved readability
 * Pause-and-continue functionality
-* Input validation for user actions
+* Input validation for numerical fields
+* Error handling for invalid user input
+
+
 
 ## Concepts Applied
 
@@ -39,15 +48,18 @@ A command-line expense management application built using Python. This project e
 * File Handling (File I/O)
 * JSON Serialization and Deserialization
 * Data Persistence
+* Exception Handling (`try` / `except`)
 * Control Flow and Conditional Logic
 * Iteration using Loops
 * Search and Filtering Operations
 * String Formatting
 * Command-Line Interface (CLI) Design
 * Software Refactoring and Code Reusability
+* Version Control using Git and GitHub
+
+
 
 ## Project Structure
-
 
 CLI-expense-tracker/
 │
@@ -82,17 +94,6 @@ Add   View  Total Delete Search
      Exit
 
 
-## Future Enhancements
-
-* Monthly expense summaries
-* Budget tracking
-* Date-wise expense filtering
-* Expense reports and analytics
-* Data export functionality
-* Flask-based web application version
-* User authentication and profiles
-
-
 ## Learning Outcomes
 
 Through this project, I gained practical experience in:
@@ -101,9 +102,44 @@ Through this project, I gained practical experience in:
 * Data Structures
 * File Handling
 * JSON-Based Storage
+* Exception Handling
 * Software Refactoring
 * Version Control using Git and GitHub
 * Problem Solving and Debugging
 * Incremental Software Development
+* Building and Maintaining CLI Applications
+
+
+## Version
+
+### Current Release: v1.0
+
+Implemented Features:
+
+* Expense Creation
+* Expense Viewing
+* Expense Deletion
+* Category-Based Search
+* Total Spending Calculation
+* JSON Data Persistence
+* Input Validation
+* Error Handling
+* Modular Function-Based Design
+
+
+## Future Enhancements
+
+* Monthly expense summaries
+* Budget tracking
+* Date-wise expense filtering
+* Expense reports and analytics
+* CSV export functionality
+* Flask-based web application version
+* User authentication and profiles
+
+
+## Author
+
+**Aaishmeen**
 
 
