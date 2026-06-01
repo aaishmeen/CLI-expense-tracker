@@ -13,11 +13,16 @@ def pause():
 
 
 def save_expenses():
+    
     with open(FILE_PATH, "w") as file:
         json.dump(expenses,file,indent=4)
 
 
 def load_expenses():
+
+    if not os.path.exists(FILE_PATH):
+        return []
+    
     with open(FILE_PATH, "r") as file:
         return json.load(file)
 
@@ -25,7 +30,14 @@ def load_expenses():
 def add_expense():
     category =  input("Enter category of expense: ")
     item_name = input("Enter item name: ")
-    price = float(input(f"Enter {item_name}'s price: "))
+
+    try:
+         price = float(input(f"Enter {item_name}'s price: "))
+
+    except ValueError:
+        print("Please Enter a Valid Price ")  
+        pause()
+        return   
 
     expense = {
         "category" :category,
@@ -59,18 +71,22 @@ def view_expenses():
 
 
 
-def total_spending():
+def show_total_spending():
+     
      total =0
+
      if not expenses :
         print("No Expenses Found")
         pause()
 
      else:
+
         for expense in expenses :
              total+= expense["price"]
 
-        print("-" * 50 )    
-        print(f"Total Spending : ₹{total}")    
+        print("-" * 50 )   
+        print(f"Total Expenses: {len(expenses)}") 
+        print(f"Total Spending : ₹{total:.2f}")    
         print("-" * 50 )
         
         pause()
@@ -95,10 +111,15 @@ def delete_expense():
                 f"{expense['item_name']:<20} "
                 f"₹{expense['price']:<10}"
             )
-        print("-" * 65)  
-    
-        delete_exp = int(input("\nEnter expense to be deleted : "))
+        print("-" * 65) 
 
+        try: 
+           delete_exp = int(input("\nEnter expense to be deleted : "))
+        except ValueError :
+            print("Please Enter a Valid Number: ")
+            pause()
+            return 
+        
         if 1<=delete_exp <= len(expenses):
             deleted_expense= expenses.pop(delete_exp-1)
             save_expenses()
@@ -170,7 +191,7 @@ while True:
             view_expenses()
            
         case "3":
-            total_spending()
+            show_total_spending()
                
         case "4":
             delete_expense()
